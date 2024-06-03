@@ -1,0 +1,358 @@
+* {
+    box-sizing: border-box;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --primary-color: #da7c3d;
+    --secondary-color: #933b88;
+    --tertiary-color: #443cac;
+}
+
+body {
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(170deg, #222, #000 90%);
+    position: relative;
+}
+
+h2 {
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    font-weight: 100;
+    font-size: 2.5rem;
+    color: white;
+}
+
+/*Loading Animation*/
+.loader{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: linear-gradient(170deg, #222, #000 90%);
+    position: absolute;
+    opacity:0;
+    z-index:-1;
+    transition:opacity 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader>i{
+    font-size: 5rem;
+    color:white;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+    
+}
+
+.loader.active{
+   opacity: 1;
+   z-index: 5;
+}
+
+.loader.active>i{
+    animation: spin 1s infinite linear;
+}
+
+/* Search Bar */
+.search-bar {
+    width: 25%;
+    z-index: 5;
+    margin: 0 auto 30px;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 60px;
+    padding: 10px 10px;
+    transition: all 1s ease;
+}
+
+.search-bar input {
+    background: transparent;
+    border: 0;
+    flex: 1;
+    outline: none;
+    font-size: 1rem;
+    color: white;
+    padding-left: 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+::placeholder {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.search-bar button img {
+    width: 15px;
+    text-align: center;
+}
+
+.search-bar button {
+    border: 0;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 1s ease;
+    cursor: pointer;
+}
+
+input:focus::placeholder {
+    opacity: 0;
+}
+
+/* Search Outputs */
+ul {
+    list-style: none;
+    position: relative; 
+    width: 100%;
+    margin: 5% auto 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+ul li {
+    display: flex;
+    flex-direction: row;
+    width: 32%;
+    background: #09090a;
+    padding: 30px 30px;
+    margin:0;
+    transition: 0.5s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    align-items: center;
+    border-radius: 16px;
+    opacity:0;
+} 
+
+.artist-id {
+    display: none;
+}
+
+.artist-pfp {
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 40px;
+    transition: all 1s ease;
+}
+
+.artist-img {
+    width: 125px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 0 0 0;
+    padding: 4px;
+    opacity: 1;
+}
+
+.artist-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    margin-right: 30px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.artist-name {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+}
+
+.artist-url{
+    margin-left: auto;
+}
+
+.artist-url>a{
+    text-decoration: none;   
+}
+
+.artist-url>a>i{
+    font-size: 2.5rem;
+    color: white;
+    transition: color 0.5s ease;
+}
+
+.artist-url>a:hover> i{
+    color: #1DB954;
+}
+
+li:nth-child(1)
+{
+    background: rgba(255,255,255,0.18);
+    animation-delay: 0.25s;
+}
+li:nth-child(2)
+{
+    background: rgba(255,255,255,0.15);
+    animation-delay: 0.5s;
+}
+li:nth-child(3)
+{
+    background: rgba(255,255,255,0.12);
+    animation-delay: 0.75s;
+}
+li:nth-child(4)
+{
+    background: rgba(255,255,255,0.10);
+    animation-delay: 1s;
+}
+li:nth-child(5)
+{
+    background: rgba(255,255,255,0.07);
+    animation-delay: 1.25s;
+}
+li:nth-child(6)
+{
+    background: rgba(255,255,255,0.05);
+    animation-delay: 1.5s;
+
+}
+
+li:hover{
+    transform: scale(1.04);
+    background-color:black;
+    color: white;
+    cursor: pointer;
+}
+
+li:hover>.artist-pfp {
+    background:linear-gradient(to top, #20447B, #560351);
+}
+
+.fadeInLeft{
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(.39, .575, .565, 1);
+    animation-name: fadeInLeft;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-3.75rem) translateZ(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) translateZ(0);
+    }
+
+}
+
+
+
+/*Valid-input-modal*/
+.valid-input-modal {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -1000px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(.39, .575, .565, 1);
+    background-color: rgb(27, 27, 27);
+    max-width: 30%;
+    border-radius: 16px;
+    border: 0;
+    box-shadow: 0 0 1em rgba(24, 24, 24, 0.5);
+    z-index: 10;
+    padding: 20px 30px;
+}
+
+.valid-input-modal.active{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.valid-input-modal h2{
+    color: white;
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    background-color: #340030;
+    display: block;
+    width: 40%;
+    border: 0;
+    margin: 30px auto 10px auto;
+    outline: none;
+    font-size: 1.15rem;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    padding: 15px 10px;
+    border-radius: 16px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0px 0px 10px 5px rgba(0 0 0 /0.2);
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
